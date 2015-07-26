@@ -55,8 +55,8 @@
                                                                            rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/CertificationStandard> ;
                                                                            
                                                                            rdfs:domain [ rdf:type :Class ;
-                                                                                         :unionOf ( <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent>
-                                                                                                    <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProduct>
+                                                                                         :unionOf ( <http://data.lirmm.fr/ontologies/food#FoodProduct>
+                                                                                                    <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent>
                                                                                                   )
                                                                                        ] .
 
@@ -66,9 +66,9 @@
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-chain-actor> rdf:type :ObjectProperty ;
                                                                          
-                                                                         rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent> ;
+                                                                         rdfs:domain <http://data.lirmm.fr/ontologies/food#FoodProduct> ;
                                                                          
-                                                                         rdfs:domain <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProduct> .
+                                                                         rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent> .
 
 
 
@@ -104,9 +104,7 @@
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-ingredient> rdf:type :ObjectProperty ;
                                                                         
-                                                                        rdfs:domain <http://www.sodlod15.org/ontologies/socialfoodlabelling/Food> ;
-                                                                        
-                                                                        rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> .
+                                                                        rdfs:domain <http://data.lirmm.fr/ontologies/food#Food> .
 
 
 
@@ -114,7 +112,7 @@
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-nutrient> rdf:type :ObjectProperty ;
                                                                       
-                                                                      rdfs:domain <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProduct> ;
+                                                                      rdfs:domain <http://data.lirmm.fr/ontologies/food#Food> ;
                                                                       
                                                                       rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient> .
 
@@ -124,7 +122,7 @@
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-preparation-method> rdf:type :ObjectProperty ;
                                                                                 
-                                                                                rdfs:domain <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProduct> ;
+                                                                                rdfs:domain <http://data.lirmm.fr/ontologies/food#Food> ;
                                                                                 
                                                                                 rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/PreparationMethod> .
 
@@ -145,7 +143,7 @@
                                                                     rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/Place> ;
                                                                     
                                                                     rdfs:domain [ rdf:type :Class ;
-                                                                                  :unionOf ( <http://www.sodlod15.org/ontologies/socialfoodlabelling/Food>
+                                                                                  :unionOf ( <http://data.lirmm.fr/ontologies/food#Food>
                                                                                              <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent>
                                                                                            )
                                                                                 ] .
@@ -166,13 +164,7 @@
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/should-avoid> rdf:type :ObjectProperty ;
                                                                       
-                                                                      rdfs:domain <http://www.sodlod15.org/ontologies/socialfoodlabelling/DietaryNeed> ;
-                                                                      
-                                                                      rdfs:range [ rdf:type :Class ;
-                                                                                   :unionOf ( <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient>
-                                                                                              <http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient>
-                                                                                            )
-                                                                                 ] .
+                                                                      rdfs:domain <http://www.sodlod15.org/ontologies/socialfoodlabelling/DietaryNeed> .
 
 
 
@@ -360,31 +352,67 @@
 
 ###  http://data.lirmm.fr/ontologies/food#Food
 
-<http://data.lirmm.fr/ontologies/food#Food> :equivalentClass <http://www.sodlod15.org/ontologies/socialfoodlabelling/Food> .
+<http://data.lirmm.fr/ontologies/food#Food> <http://www.w3.org/2004/02/skos/core#example> """[SFL] The Dolmeo Pizza. Milk. Lasagne. Vegetable Dishes. Main Courses. 
+
+These would all be OWL individuals in SFL ontology, since we don't currently model real instances, eg, the pizza you've eaten today. We are only interested in the pizza as a product, of which you've eaten an instance today.
+
+Moreover, 'Dolmeo Pizza' is modelled as an instance in SFL, due to practical reasons: we intend to reuse existing SKOS-based vocabularies (namely AGROVOC) and it's often easier to work with OWL individuals with applications like CMSes or Wikis.""" ;
+                                            
+                                            <http://www.w3.org/2004/02/skos/core#definition> "Anything that can be eaten, from raw material such as salt, to elaborated recipes and commercial product (types) manufactured by companies." ;
+                                            
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "Food" .
 
 
 
 ###  http://data.lirmm.fr/ontologies/food#FoodProduct
 
-<http://data.lirmm.fr/ontologies/food#FoodProduct> :equivalentClass <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProduct> .
+<http://data.lirmm.fr/ontologies/food#FoodProduct> :equivalentClass <http://purl.org/foodontology#Food> ;
+                                                   
+                                                   rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Food> ;
+                                                   
+                                                   rdfs:comment "[SFL] As every other classes in the SFL project, usually FoodProduct is used to represent only food procut types, eg, the 'Dolmeo Margherita Pizza Barcode 123', not the instance of such product you bought in the street supermarket today." ;
+                                                   
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Food Product" ;
+                                                   
+                                                   <http://www.w3.org/2004/02/skos/core#example> "'Dolmeo Pizza', or 'the pudding cake usually produced by a given person', not just 'pizza', or 'pudding cake' (you should use FoodType for the latter)." ;
+                                                   
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "This denotes a food produced by some company, organisation, or other entity. This is different than a generic food or food dish." .
 
 
 
 ###  http://data.lirmm.fr/ontologies/food#Ingredient
 
-<http://data.lirmm.fr/ontologies/food#Ingredient> :equivalentClass <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> .
+<http://data.lirmm.fr/ontologies/food#Ingredient> :equivalentClass <http://purl.org/foodontology#Ingredient> ;
+                                                  
+                                                  rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Food> ;
+                                                  
+                                                  <http://www.w3.org/2004/02/skos/core#example> "beef meat as first ingredient of the FoodProduct 'CFK Burger'. 10g of salt as 3rd ingredient of 'Kattle Chips'. Note that ingredient instances are often intended to be specific to FoodProduct instances (see its definition), so that further qualifiers, which are specific to this relationship, can be attached to it. dc:type (a FoodType) can be used to qualify the food type." ;
+                                                  
+                                                  <http://www.w3.org/2004/02/skos/core#definition> "A food that plays the role of being part of another food." ;
+                                                  
+                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "Ingredient" .
+
+
+
+###  http://purl.org/foodontology#Food
+
 
 
 
 ###  http://purl.org/foodontology#FoodAdditive
 
-<http://purl.org/foodontology#FoodAdditive> :equivalentClass <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodAdditive> .
+<http://purl.org/foodontology#FoodAdditive> rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Ingredient> ;
+                                            
+                                            <http://www.w3.org/2004/02/skos/core#example> "E45, sorbic acid, aspartame." ;
+                                            
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "Food Additive" ;
+                                            
+                                            <http://www.w3.org/2004/02/skos/core#definition> "Substance added to food to preserve flavor or enhance its taste and appearance." .
 
 
 
 ###  http://purl.org/foodontology#Ingredient
 
-<http://purl.org/foodontology#Ingredient> :equivalentClass <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> .
 
 
 
@@ -460,36 +488,6 @@
 
 
 
-###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Food
-
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/Food> rdf:type :Class ;
-                                                              
-                                                              rdfs:label "Food" ;
-                                                              
-                                                              <http://www.w3.org/2004/02/skos/core#example> """The Dolmeo Pizza. Milk. Lasagne. Vegetable Dishes. Main Courses. 
-
-These would all be OWL individuals in SFL ontology, since we don't currently model real instances, eg, the pizza you've eaten today. We are only interested in the pizza as a product, of which you've eaten an instance today.
-
-Moreover, 'Dolmeo Pizza' is modelled as an instance in SFL, due to practical reasons: we intend to reuse existing SKOS-based vocabularies (namely AGROVOC) and it's often easier to work with OWL individuals with applications like CMSes or Wikis.""" ;
-                                                              
-                                                              <http://www.w3.org/2004/02/skos/core#definition> "Anything that can be eaten, from raw material such as salt, to elaborated recipes and commercial product (types) manufactured by companies." .
-
-
-
-###  http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodAdditive
-
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodAdditive> rdf:type :Class ;
-                                                                      
-                                                                      rdfs:label "Food Additive" ;
-                                                                      
-                                                                      rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> ;
-                                                                      
-                                                                      <http://www.w3.org/2004/02/skos/core#definition> "Substance added to food to preserve flavor or enhance its taste and appearance." ;
-                                                                      
-                                                                      <http://www.w3.org/2004/02/skos/core#example> "E45, sorbic acid, aspartame." .
-
-
-
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent> rdf:type :Class ;
@@ -506,49 +504,17 @@ Moreover, 'Dolmeo Pizza' is modelled as an instance in SFL, due to practical rea
 
 
 
-###  http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProduct
-
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProduct> rdf:type :Class ;
-                                                                     
-                                                                     rdfs:label "Food Product" ;
-                                                                     
-                                                                     rdfs:subClassOf <http://purl.org/foodontology#Food> ,
-                                                                                     <http://purl.org/goodrelations/v1#ProductOrServiceModel> ,
-                                                                                     <http://www.sodlod15.org/ontologies/socialfoodlabelling/Food> ;
-                                                                     
-                                                                     <http://www.w3.org/2004/02/skos/core#example> "'Dolmeo Pizza', or 'the pudding cake usually produced by a given person', not just 'pizza', or 'pudding cake' (you should use FoodType for the latter)." ;
-                                                                     
-                                                                     <http://www.w3.org/2004/02/skos/core#definition> "This denotes a food produced by some company, organisation, or other entity. This is different than a generic food or food dish." ;
-                                                                     
-                                                                     rdfs:comment "[SFL] As every other classes in the SFL project, usually FoodProduct is used to represent only food procut types, eg, the 'Dolmeo Margherita Pizza Barcode 123', not the instance of such product you bought in the street supermarket today." .
-
-
-
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodType
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodType> rdf:type :Class ;
                                                                   
                                                                   rdfs:label "Food Type" ;
                                                                   
-                                                                  rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/Food> ;
+                                                                  rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Food> ;
                                                                   
                                                                   <http://www.w3.org/2004/02/skos/core#example> "Milk, Tomato Sauce Pasta, Pizza, Salad." ;
                                                                   
                                                                   <http://www.w3.org/2004/02/skos/core#definition> "Instances of this class defines representatives of a type of food or dish. We model food types this way, and not as OWL classes, due to the will of exploiting existing vocabularies (namely, AGROVOC), as well as simplyfing certain applications (eg, define a new dish via a CMS or WIki)." .
-
-
-
-###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient
-
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> rdf:type :Class ;
-                                                                    
-                                                                    rdfs:label "Ingredient" ;
-                                                                    
-                                                                    rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/Food> ;
-                                                                    
-                                                                    <http://www.w3.org/2004/02/skos/core#example> "beef meat as first ingredient of the FoodProduct 'CFK Burger'. 10g of salt as 3rd ingredient of 'Kattle Chips'. Note that ingredient instances are intended to be specific to FoodProduct instances (see its definition), so that further qualifiers, which are specific to this relationship, can be attached to it. skosx:broaderInstantive (a FoodType) can be used to qualify the food type." ;
-                                                                    
-                                                                    <http://www.w3.org/2004/02/skos/core#definition> "A  given quantity of food that is part of another food." .
 
 
 
@@ -661,71 +627,61 @@ Moreover, 'Dolmeo Pizza' is modelled as an instance in SFL, due to practical rea
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Aromi
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Aromi> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> ,
-                                                                                  :NamedIndividual .
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Aromi> rdf:type :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Burro
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Burro> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> ,
-                                                                                  :NamedIndividual .
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Burro> rdf:type :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Carbonato_acido_di_sodio
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Carbonato_acido_di_sodio> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodAdditive> ,
-                                                                                                     :NamedIndividual .
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Carbonato_acido_di_sodio> rdf:type :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Destrosio_da_frumento
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Destrosio_da_frumento> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> ,
-                                                                                                  :NamedIndividual .
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Destrosio_da_frumento> rdf:type :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Difosfato_disodico
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Difosfato_disodico> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodAdditive> ,
-                                                                                               :NamedIndividual .
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Difosfato_disodico> rdf:type :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Farina_di_grano_tenero_00
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Farina_di_grano_tenero_00> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> ,
-                                                                                                      :NamedIndividual .
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Farina_di_grano_tenero_00> rdf:type :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Lecitina_di_soia
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Lecitina_di_soia> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodAdditive> ,
-                                                                                             :NamedIndividual .
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Lecitina_di_soia> rdf:type :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Pasta_di_cacao
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Pasta_di_cacao> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> ,
-                                                                                           :NamedIndividual .
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Pasta_di_cacao> rdf:type :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Sciroppo_di_glucosio_fruttosio_da_frumento
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Sciroppo_di_glucosio_fruttosio_da_frumento> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> ,
-                                                                                                                       :NamedIndividual .
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Sciroppo_di_glucosio_fruttosio_da_frumento> rdf:type :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Zucchero
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Zucchero> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Ingredient> ,
-                                                                                     :NamedIndividual .
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Zucchero> rdf:type :NamedIndividual .
 
 
 
@@ -785,7 +741,7 @@ Moreover, 'Dolmeo Pizza' is modelled as an instance in SFL, due to practical rea
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto_1
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto_1> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProduct> ,
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto_1> rdf:type <http://data.lirmm.fr/ontologies/food#Food> ,
                                                                              :NamedIndividual ;
                                                                     
                                                                     rdfs:label "Gocciole Coop"@it ;
