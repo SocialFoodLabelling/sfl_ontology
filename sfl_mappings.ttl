@@ -1,0 +1,182 @@
+@prefix : <http://www.w3.org/2002/07/owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sfl: <http://www.sodlod15.org/ontologies/socialfoodlabelling> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.sodlod15.org/ontologies/sfl_mappings> .
+
+<http://www.sodlod15.org/ontologies/sfl_mappings> rdf:type :Ontology ;
+                                                  
+                                                  :imports <http://www.sodlod15.org/ontologies/socialfoodlabelling> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://purl.org/dc/elements/1.1/contributor
+
+<http://purl.org/dc/elements/1.1/contributor> rdf:type :AnnotationProperty .
+
+
+
+###  http://purl.org/dc/elements/1.1/creator
+
+<http://purl.org/dc/elements/1.1/creator> rdf:type :AnnotationProperty .
+
+
+
+###  http://purl.org/dc/elements/1.1/description
+
+<http://purl.org/dc/elements/1.1/description> rdf:type :AnnotationProperty .
+
+
+
+###  http://purl.org/dc/elements/1.1/title
+
+<http://purl.org/dc/elements/1.1/title> rdf:type :AnnotationProperty .
+
+
+
+###  http://purl.org/dc/terms/modified
+
+<http://purl.org/dc/terms/modified> rdf:type :AnnotationProperty .
+
+
+
+###  http://www.w3.org/2003/06/sw-vocab-status/ns#term_status
+
+<http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> rdf:type :AnnotationProperty .
+
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type :AnnotationProperty .
+
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+
+<http://www.w3.org/2004/02/skos/core#example> rdf:type :AnnotationProperty .
+
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type :AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://data.lirmm.fr/ontologies/food#Food
+
+<http://data.lirmm.fr/ontologies/food#Food> <http://www.w3.org/2004/02/skos/core#example> """[SFL] The Dolmeo Pizza. Milk. Lasagne. Vegetable Dishes. Main Courses. 
+
+These would all be OWL individuals in SFL ontology, since we don't currently model real instances, eg, the pizza you've eaten today. We are only interested in the pizza as a product, of which you've eaten an instance today.
+
+Moreover, 'Dolmeo Pizza' is modelled as an instance in SFL, due to practical reasons: we intend to reuse existing SKOS-based vocabularies (namely AGROVOC) and it's often easier to work with OWL individuals with applications like CMSes or Wikis.""" ;
+                                            
+                                            <http://www.w3.org/2004/02/skos/core#definition> "Anything that can be eaten, from raw material such as salt, to elaborated recipes and commercial product (types) manufactured by companies." ;
+                                            
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "Food" .
+
+
+
+###  http://data.lirmm.fr/ontologies/food#FoodProduct
+
+<http://data.lirmm.fr/ontologies/food#FoodProduct> rdf:type :Class ;
+                                                   
+                                                   :equivalentClass <http://purl.org/foodontology#Food> ;
+                                                   
+                                                   rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Food> ;
+                                                   
+                                                   rdfs:comment "[SFL] As every other classes in the SFL project, usually FoodProduct is used to represent only food procut types, eg, the 'Dolmeo Margherita Pizza Barcode 123', not the instance of such product you bought in the street supermarket today." ;
+                                                   
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Food Product" ;
+                                                   
+                                                   <http://www.w3.org/2004/02/skos/core#example> "'Dolmeo Pizza', or 'the pudding cake usually produced by a given person', not just 'pizza', or 'pudding cake' (you should use FoodType for the latter)." ;
+                                                   
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "This denotes a food produced by some company, organisation, or other entity. This is different than a generic food or food dish." .
+
+
+
+###  http://data.lirmm.fr/ontologies/food#Ingredient
+
+<http://data.lirmm.fr/ontologies/food#Ingredient> rdf:type :Class ;
+                                                  
+                                                  :equivalentClass <http://purl.org/foodontology#Ingredient> ;
+                                                  
+                                                  rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Food> ;
+                                                  
+                                                  <http://www.w3.org/2004/02/skos/core#example> "beef meat as first ingredient of the FoodProduct 'CFK Burger'. 10g of salt as 3rd ingredient of 'Kattle Chips'. Note that ingredient instances are often intended to be specific to FoodProduct instances (see its definition), so that further qualifiers, which are specific to this relationship, can be attached to it. dc:type (a FoodType) can be used to qualify the food type." ;
+                                                  
+                                                  <http://www.w3.org/2004/02/skos/core#definition> "A food that plays the role of being part of another food." ;
+                                                  
+                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "Ingredient" .
+
+
+
+###  http://purl.org/foodontology#Food
+
+<http://purl.org/foodontology#Food> rdf:type :Class .
+
+
+
+###  http://purl.org/foodontology#FoodAdditive
+
+<http://purl.org/foodontology#FoodAdditive> rdf:type :Class ;
+                                            
+                                            rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Ingredient> ;
+                                            
+                                            <http://www.w3.org/2004/02/skos/core#example> "E45, sorbic acid, aspartame." ;
+                                            
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "Food Additive" ;
+                                            
+                                            <http://www.w3.org/2004/02/skos/core#definition> "Substance added to food to preserve flavor or enhance its taste and appearance." .
+
+
+
+###  http://purl.org/foodontology#Ingredient
+
+<http://purl.org/foodontology#Ingredient> rdf:type :Class .
+
+
+
+
+
+#################################################################
+#
+#    Annotations
+#
+#################################################################
+
+
+<http://www.w3.org/2004/02/skos/extensions> <http://purl.org/dc/elements/1.1/title> "SKOS Extensions RDF Vocabulary" ;
+                                            
+                                            <http://purl.org/dc/terms/modified> "2004-08-27" ;
+                                            
+                                            <http://purl.org/dc/elements/1.1/description> "@@TODO" ;
+                                            
+                                            <http://purl.org/dc/elements/1.1/contributor> "Members of the public-esw-thes@w3.org mailing list." ;
+                                            
+                                            <http://purl.org/dc/elements/1.1/creator> "Alistair Miles" .
+
+
+
+
+###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+
