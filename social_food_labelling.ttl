@@ -100,17 +100,11 @@
 
 
 
-###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-ingredient
-
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/has-ingredient> rdf:type :ObjectProperty ;
-                                                                        
-                                                                        rdfs:domain <http://data.lirmm.fr/ontologies/food#Food> .
-
-
-
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-nutrient
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-nutrient> rdf:type :ObjectProperty ;
+                                                                      
+                                                                      rdfs:label "has nutrient" ;
                                                                       
                                                                       rdfs:domain <http://data.lirmm.fr/ontologies/food#Food> ;
                                                                       
@@ -446,6 +440,8 @@
                                                                   
                                                                   rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Food> ;
                                                                   
+                                                                  <http://purl.org/dc/elements/1.1/description> "A representative of a type of food or dish." ;
+                                                                  
                                                                   <http://www.w3.org/2004/02/skos/core#example> "Milk, Tomato Sauce Pasta, Pizza, Salad." ;
                                                                   
                                                                   <http://www.w3.org/2004/02/skos/core#definition> "Instances of this class defines representatives of a type of food or dish. We model food types this way, and not as OWL classes, due to the will of exploiting existing vocabularies (namely, AGROVOC), as well as simplyfing certain applications (eg, define a new dish via a CMS or WIki)." .
@@ -454,7 +450,16 @@
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient> rdf:type :Class .
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient> rdf:type :Class ;
+                                                                  
+                                                                  rdfs:label "Nutrient" ;
+                                                                  
+                                                                  rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Food> ;
+                                                                  
+                                                                  rdfs:comment "Nutrients are components in foods that an organism uses to survive and grow." ,
+                                                                               "TODO: complete subclasses of this with metadata annotations." ;
+                                                                  
+                                                                  rdfs:seeAlso <https://en.wikipedia.org/wiki/Nutrient> .
 
 
 
@@ -683,17 +688,6 @@
                                                                     <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-distributor> <http://www.sodlod15.org/ontologies/socialfoodlabelling/Coop_Bologna> ;
                                                                     
                                                                     <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-producer> <http://www.sodlod15.org/ontologies/socialfoodlabelling/Mavery_Sondrio> ;
-                                                                    
-                                                                    <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-ingredient> <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Aromi> ,
-                                                                                                                                            <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Burro> ,
-                                                                                                                                            <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Carbonato_acido_di_sodio> ,
-                                                                                                                                            <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Destrosio_da_frumento> ,
-                                                                                                                                            <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Difosfato_disodico> ,
-                                                                                                                                            <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Farina_di_grano_tenero_00> ,
-                                                                                                                                            <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Lecitina_di_soia> ,
-                                                                                                                                            <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Pasta_di_cacao> ,
-                                                                                                                                            <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Sciroppo_di_glucosio_fruttosio_da_frumento> ,
-                                                                                                                                            <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_Zucchero> ;
                                                                     
                                                                     <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-nutrient> <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_carbohydrate> ,
                                                                                                                                           <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_energy> ,

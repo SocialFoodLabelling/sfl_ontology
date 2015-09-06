@@ -9,7 +9,8 @@
 
 <http://www.sodlod15.org/ontologies/sfl_mappings> rdf:type :Ontology ;
                                                   
-                                                  :imports <http://www.sodlod15.org/ontologies/socialfoodlabelling> .
+                                                  :imports <http://topbraid.org/schema/> ,
+                                                           <http://www.sodlod15.org/ontologies/socialfoodlabelling> .
 
 
 #################################################################
@@ -77,6 +78,29 @@
 
 #################################################################
 #
+#    Data properties
+#
+#################################################################
+
+
+###  http://data.lirmm.fr/ontologies/food#quantity
+
+<http://data.lirmm.fr/ontologies/food#quantity> <http://www.w3.org/2004/02/skos/core#prefLabel> "ingredient quantity" ;
+                                                
+                                                rdfs:subPropertyOf <http://schema.org/value> .
+
+
+
+###  http://data.lirmm.fr/ontologies/food#rank
+
+<http://data.lirmm.fr/ontologies/food#rank> rdfs:subPropertyOf <http://schema.org/position> .
+
+
+
+
+
+#################################################################
+#
 #    Classes
 #
 #################################################################
@@ -90,7 +114,7 @@ These would all be OWL individuals in SFL ontology, since we don't currently mod
 
 Moreover, 'Dolmeo Pizza' is modelled as an instance in SFL, due to practical reasons: we intend to reuse existing SKOS-based vocabularies (namely AGROVOC) and it's often easier to work with OWL individuals with applications like CMSes or Wikis.""" ;
                                             
-                                            <http://www.w3.org/2004/02/skos/core#definition> "Anything that can be eaten, from raw material such as salt, to elaborated recipes and commercial product (types) manufactured by companies." ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "Anything that can be eaten, from raw material such as salt, to elaborated recipes and commercial product (usually types, not individual instances) manufactured by companies." ;
                                             
                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "Food" .
 
