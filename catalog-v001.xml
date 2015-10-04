@@ -4,8 +4,9 @@
     <uri id="Imports Wizard Entry" name="http://www.sodlod15.org/ontologies/socialfoodlabelling" uri="social_food_labelling.ttl"/>
     <uri id="Imports Wizard Entry" name="http://data.lirmm.fr/ontologies/food" uri="imports/off_ontology.ttl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1441308746039" name="http://purl.org/foodontology" uri="imports/foodpedia.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1441308746039" name="http://www.w3.org/2004/02/skos/core" uri="imports/skos_core.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1441308746039" name="http://www.w3.org/2004/02/skos/extensions" uri="relevant_ontos/skosx.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1443117145539" name="http://purl.org/foodontology" uri="imports/foodpedia.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1443117145539" name="http://topbraid.org/schema/" uri="imports/schema_org.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1443117145539" name="http://www.w3.org/2004/02/skos/core" uri="imports/skos_core.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1443117145539" name="http://www.w3.org/2004/02/skos/extensions" uri="relevant_ontos/skosx.rdf"/>
     </group>
 </catalog>

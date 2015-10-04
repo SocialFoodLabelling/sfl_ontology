@@ -48,6 +48,16 @@
 #################################################################
 
 
+###  http://www.sodlod15.org/ontologies/socialfoodlabelling#has-ingredient
+
+:has-ingredient rdf:type :ObjectProperty ;
+                
+                rdfs:label "has ingredient" ;
+                
+                rdfs:comment "TODO: sub-property of (food-has-part sub-prop has-part)." .
+
+
+
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-certification
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-certification> rdf:type :ObjectProperty ;
@@ -105,6 +115,8 @@
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-nutrient> rdf:type :ObjectProperty ;
                                                                       
                                                                       rdfs:label "has nutrient" ;
+                                                                      
+                                                                      rdfs:comment "TODO: sub-property of (food-has-part sub-prop has-part)." ;
                                                                       
                                                                       rdfs:domain <http://data.lirmm.fr/ontologies/food#Food> ;
                                                                       
