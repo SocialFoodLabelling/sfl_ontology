@@ -48,16 +48,6 @@
 #################################################################
 
 
-###  http://www.sodlod15.org/ontologies/socialfoodlabelling#has-ingredient
-
-:has-ingredient rdf:type :ObjectProperty ;
-                
-                rdfs:label "has ingredient" ;
-                
-                rdfs:comment "TODO: sub-property of (food-has-part sub-prop has-part)." .
-
-
-
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-certification
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-certification> rdf:type :ObjectProperty ;
@@ -174,6 +164,21 @@
 
 
 
+###  http://www.w3.org/2002/07/owl#has-ingredient
+
+:has-ingredient rdf:type :ObjectProperty ;
+                
+                rdfs:label "has ingredient" ;
+                
+                rdfs:comment "TODO: sub-property of (food-has-part sub-prop has-part)." ;
+                
+                rdfs:domain <http://data.lirmm.fr/ontologies/food#Food> ;
+                
+                rdfs:range <http://data.lirmm.fr/ontologies/food#Ingredient> ,
+                           <http://purl.org/foodontology#Ingredient> .
+
+
+
 ###  http://www.w3.org/2004/02/skos/extensions#broaderGeneric
 
 <http://www.w3.org/2004/02/skos/extensions#broaderGeneric> rdf:type :ObjectProperty ,
@@ -237,9 +242,9 @@
                                                             
                                                             rdfs:label "narrower (generic)"@en ;
                                                             
-                                                            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                                            
                                                             rdfs:comment "This property is the inverse of the 'broaderGeneric' property." ;
+                                                            
+                                                            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                                                             
                                                             <http://www.w3.org/2004/02/skos/core#definition> "@@TODO"@en ;
                                                             
@@ -259,9 +264,9 @@
                                                                
                                                                <http://www.w3.org/2004/02/skos/core#definition> "@@TODO"@en ;
                                                                
-                                                               rdfs:comment "This property is the inverse of the 'broaderInstantive' property."@en ;
-                                                               
                                                                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
+                                                               
+                                                               rdfs:comment "This property is the inverse of the 'broaderInstantive' property."@en ;
                                                                
                                                                rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/extensions> ;
                                                                
@@ -320,30 +325,15 @@
                                                           
                                                           rdfs:label "related (is part of)"@en ;
                                                           
-                                                          <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                                          
                                                           <http://www.w3.org/2004/02/skos/core#definition> "@@TODO"@en ;
+                                                          
+                                                          <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                                                           
                                                           rdfs:comment "An extension of the 'related' property.  Use this property to express a partitive relationship between concepts, where it is desired that such a relationship be treated as associative (i.e. linking separate branches of a hierarchy) and NOT hierarchical."@en ;
                                                           
                                                           rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/extensions> ;
                                                           
                                                           rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#related> .
-
-
-
-
-
-#################################################################
-#
-#    Data properties
-#
-#################################################################
-
-
-###  http://www.sodlod15.org/ontologies/socialfoodlabelling/quantita_100g
-
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/quantita_100g> rdf:type :DatatypeProperty .
 
 
 
@@ -454,9 +444,9 @@
                                                                   
                                                                   <http://purl.org/dc/elements/1.1/description> "A representative of a type of food or dish." ;
                                                                   
-                                                                  <http://www.w3.org/2004/02/skos/core#example> "Milk, Tomato Sauce Pasta, Pizza, Salad." ;
+                                                                  <http://www.w3.org/2004/02/skos/core#definition> "Instances of this class defines representatives of a type of food or dish. We model food types this way, and not as OWL classes, due to the will of exploiting existing vocabularies (namely, AGROVOC), as well as simplyfing certain applications (eg, define a new dish via a CMS or WIki)." ;
                                                                   
-                                                                  <http://www.w3.org/2004/02/skos/core#definition> "Instances of this class defines representatives of a type of food or dish. We model food types this way, and not as OWL classes, due to the will of exploiting existing vocabularies (namely, AGROVOC), as well as simplyfing certain applications (eg, define a new dish via a CMS or WIki)." .
+                                                                  <http://www.w3.org/2004/02/skos/core#example> "Milk, Tomato Sauce Pasta, Pizza, Salad." .
 
 
 
@@ -468,8 +458,8 @@
                                                                   
                                                                   rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Food> ;
                                                                   
-                                                                  rdfs:comment "Nutrients are components in foods that an organism uses to survive and grow." ,
-                                                                               "TODO: complete subclasses of this with metadata annotations." ;
+                                                                  rdfs:comment "TODO: complete subclasses of this with metadata annotations." ,
+                                                                               "Nutrients are components in foods that an organism uses to survive and grow." ;
                                                                   
                                                                   rdfs:seeAlso <https://en.wikipedia.org/wiki/Nutrient> .
 
@@ -639,54 +629,42 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_carbohydrate
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_carbohydrate> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Carbohydrate> ,
-                                                                                         :NamedIndividual ;
-                                                                                
-                                                                                <http://www.sodlod15.org/ontologies/socialfoodlabelling/quantita_100g> 65.8 .
+                                                                                         :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_energy
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_energy> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Energy> ,
-                                                                                   :NamedIndividual ;
-                                                                          
-                                                                          <http://www.sodlod15.org/ontologies/socialfoodlabelling/quantita_100g> 489.0 .
+                                                                                   :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_fat
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_fat> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Fat> ,
-                                                                                :NamedIndividual ;
-                                                                       
-                                                                       <http://www.sodlod15.org/ontologies/socialfoodlabelling/quantita_100g> 21.3 .
+                                                                                :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_fiber
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_fiber> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Fiber> ,
-                                                                                  :NamedIndividual ;
-                                                                         
-                                                                         <http://www.sodlod15.org/ontologies/socialfoodlabelling/quantita_100g> 3.0 .
+                                                                                  :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_protein
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_protein> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Protein> ,
-                                                                                    :NamedIndividual ;
-                                                                           
-                                                                           <http://www.sodlod15.org/ontologies/socialfoodlabelling/quantita_100g> 6.9 .
+                                                                                    :NamedIndividual .
 
 
 
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_salt
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_salt> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Salt> ,
-                                                                                 :NamedIndividual ;
-                                                                        
-                                                                        <http://www.sodlod15.org/ontologies/socialfoodlabelling/quantita_100g> 0.25 .
+                                                                                 :NamedIndividual .
 
 
 
@@ -719,15 +697,15 @@
 #################################################################
 
 
-<http://www.w3.org/2004/02/skos/extensions> <http://purl.org/dc/elements/1.1/title> "SKOS Extensions RDF Vocabulary" ;
+<http://www.w3.org/2004/02/skos/extensions> <http://purl.org/dc/elements/1.1/description> "@@TODO" ;
                                             
                                             <http://purl.org/dc/terms/modified> "2004-08-27" ;
                                             
-                                            <http://purl.org/dc/elements/1.1/description> "@@TODO" ;
+                                            <http://purl.org/dc/elements/1.1/creator> "Alistair Miles" ;
                                             
-                                            <http://purl.org/dc/elements/1.1/contributor> "Members of the public-esw-thes@w3.org mailing list." ;
+                                            <http://purl.org/dc/elements/1.1/title> "SKOS Extensions RDF Vocabulary" ;
                                             
-                                            <http://purl.org/dc/elements/1.1/creator> "Alistair Miles" .
+                                            <http://purl.org/dc/elements/1.1/contributor> "Members of the public-esw-thes@w3.org mailing list." .
 
 
 
