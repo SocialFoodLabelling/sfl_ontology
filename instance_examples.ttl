@@ -1,0 +1,68 @@
+@prefix : <http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix off: <http://data.lirmm.fr/ontologies/food#> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@base <http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#> .
+
+
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#> rdf:type owl:Ontology ;
+
+                                                                   owl:imports <http://data.lirmm.fr/ontologies/food> ,
+                                                                               <http://purl.org/foodontology/0.0.9> ,
+                                                                               <http://topbraid.org/schema/> ,
+                                                                               <http://www.sodlod15.org/ontologies/socialfoodlabelling> ,
+                                                                               <http://www.w3.org/2004/02/skos/core> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://purl.org/dc/terms/type
+
+<http://purl.org/dc/terms/type> rdf:type owl:AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#Luxury_Christmas_Pudding
+
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_Luxury_Christmas_Pudding> rdf:type <http://data.lirmm.fr/ontologies/food#FoodProduct> ,
+                                                                                                    owl:NamedIndividual ;
+
+                                                                                           off:code "000027533024";
+
+                                                                                           off:containsIngredient <http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_Demerara_Sugar>;
+
+owl:sameAs <http://world-en.openfoodfacts.org/product/000027533024/luxury-christmas-pudding-asda>
+
+.
+
+
+###  http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_Demerara_Sugar
+
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_Demerara_Sugar> rdf:type off:Ingredient,
+                                                                                          owl:NamedIndividual ;
+
+                                                                                 rdfs:label "Demerara Sugar" ;
+
+                                                                                 # Cane Sugar, AGROVOC has nothing more specific
+                                                                                 dc:type agrovoc:c_16477;
+
+                                                                                 off:rank 1 .

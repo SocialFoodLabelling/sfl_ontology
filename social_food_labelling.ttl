@@ -164,21 +164,6 @@
 
 
 
-###  http://www.w3.org/2002/07/owl#has-ingredient
-
-:has-ingredient rdf:type :ObjectProperty ;
-                
-                rdfs:label "has ingredient" ;
-                
-                rdfs:comment "TODO: sub-property of (food-has-part sub-prop has-part)." ;
-                
-                rdfs:domain <http://data.lirmm.fr/ontologies/food#Food> ;
-                
-                rdfs:range <http://data.lirmm.fr/ontologies/food#Ingredient> ,
-                           <http://purl.org/foodontology#Ingredient> .
-
-
-
 ###  http://www.w3.org/2004/02/skos/extensions#broaderGeneric
 
 <http://www.w3.org/2004/02/skos/extensions#broaderGeneric> rdf:type :ObjectProperty ,
