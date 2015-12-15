@@ -8,7 +8,7 @@
 @base <http://www.sodlod15.org/ontologies/socialfoodlabelling> .
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling> rdf:type :Ontology ;
-                                                         
+
                                                          :imports <http://data.lirmm.fr/ontologies/food> ,
                                                                   <http://purl.org/foodontology> ,
                                                                   <http://www.w3.org/2004/02/skos/core> .
@@ -48,12 +48,13 @@
 #################################################################
 
 
+
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-certification
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-certification> rdf:type :ObjectProperty ;
-                                                                           
+
                                                                            rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/CertificationStandard> ;
-                                                                           
+
                                                                            rdfs:domain [ rdf:type :Class ;
                                                                                          :unionOf ( <http://data.lirmm.fr/ontologies/food#FoodProduct>
                                                                                                     <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent>
@@ -65,9 +66,9 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-chain-actor
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-chain-actor> rdf:type :ObjectProperty ;
-                                                                         
+
                                                                          rdfs:domain <http://data.lirmm.fr/ontologies/food#FoodProduct> ;
-                                                                         
+
                                                                          rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent> .
 
 
@@ -75,9 +76,9 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-compliance-requirement
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-compliance-requirement> rdf:type :ObjectProperty ;
-                                                                                    
+
                                                                                     rdfs:domain <http://www.sodlod15.org/ontologies/socialfoodlabelling/CertificationStandard> ;
-                                                                                    
+
                                                                                     rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/ComplianceRequirement> .
 
 
@@ -85,9 +86,9 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-dietary-need
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-dietary-need> rdf:type :ObjectProperty ;
-                                                                          
+
                                                                           rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/DietaryNeed> ;
-                                                                          
+
                                                                           rdfs:domain <http://www.sodlod15.org/ontologies/socialfoodlabelling/Disease> .
 
 
@@ -95,7 +96,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-distributor
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-distributor> rdf:type :ObjectProperty ;
-                                                                         
+
                                                                          rdfs:subPropertyOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-chain-actor> .
 
 
@@ -103,13 +104,13 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-nutrient
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-nutrient> rdf:type :ObjectProperty ;
-                                                                      
+
                                                                       rdfs:label "has nutrient" ;
-                                                                      
+
                                                                       rdfs:comment "TODO: sub-property of (food-has-part sub-prop has-part)." ;
-                                                                      
+
                                                                       rdfs:domain <http://data.lirmm.fr/ontologies/food#Food> ;
-                                                                      
+
                                                                       rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient> .
 
 
@@ -117,9 +118,9 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-preparation-method
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-preparation-method> rdf:type :ObjectProperty ;
-                                                                                
+
                                                                                 rdfs:domain <http://data.lirmm.fr/ontologies/food#Food> ;
-                                                                                
+
                                                                                 rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/PreparationMethod> .
 
 
@@ -127,7 +128,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/has-producer
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-producer> rdf:type :ObjectProperty ;
-                                                                      
+
                                                                       rdfs:subPropertyOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-chain-actor> .
 
 
@@ -135,9 +136,9 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/is-located
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/is-located> rdf:type :ObjectProperty ;
-                                                                    
+
                                                                     rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/Place> ;
-                                                                    
+
                                                                     rdfs:domain [ rdf:type :Class ;
                                                                                   :unionOf ( <http://data.lirmm.fr/ontologies/food#Food>
                                                                                              <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent>
@@ -149,9 +150,9 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/set-by
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/set-by> rdf:type :ObjectProperty ;
-                                                                
+
                                                                 rdfs:domain <http://www.sodlod15.org/ontologies/socialfoodlabelling/CertificationAuthority> ;
-                                                                
+
                                                                 rdfs:range <http://www.sodlod15.org/ontologies/socialfoodlabelling/CertificationStandard> .
 
 
@@ -159,7 +160,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/should-avoid
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/should-avoid> rdf:type :ObjectProperty ;
-                                                                      
+
                                                                       rdfs:domain <http://www.sodlod15.org/ontologies/socialfoodlabelling/DietaryNeed> .
 
 
@@ -168,17 +169,17 @@
 
 <http://www.w3.org/2004/02/skos/extensions#broaderGeneric> rdf:type :ObjectProperty ,
                                                                     :TransitiveProperty ;
-                                                           
+
                                                            rdfs:label "broader (generic)"@en ;
-                                                           
+
                                                            <http://www.w3.org/2004/02/skos/core#definition> "@@TODO"@en ;
-                                                           
+
                                                            rdfs:comment "An extension of the 'broader' property to specify the class subsumption (sub-class/super-class) relationship between two concepts."@en ;
-                                                           
+
                                                            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                                           
+
                                                            rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/extensions> ;
-                                                           
+
                                                            rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#broader> .
 
 
@@ -186,17 +187,17 @@
 ###  http://www.w3.org/2004/02/skos/extensions#broaderInstantive
 
 <http://www.w3.org/2004/02/skos/extensions#broaderInstantive> rdf:type :ObjectProperty ;
-                                                              
+
                                                               rdfs:label "broader (instantive)"@en ;
-                                                              
+
                                                               <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                                              
+
                                                               <http://www.w3.org/2004/02/skos/core#definition> "@@TODO"@en ;
-                                                              
+
                                                               rdfs:comment "An extension of the 'skos:broader' property to specify an instantiation (instance of) relationship between two concepts."@en ;
-                                                              
+
                                                               rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/extensions> ;
-                                                              
+
                                                               rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#broader> .
 
 
@@ -205,17 +206,17 @@
 
 <http://www.w3.org/2004/02/skos/extensions#broaderPartitive> rdf:type :ObjectProperty ,
                                                                       :TransitiveProperty ;
-                                                             
+
                                                              rdfs:label "broader (partitive)"@en ;
-                                                             
+
                                                              <http://www.w3.org/2004/02/skos/core#definition> "@@TODO"@en ;
-                                                             
+
                                                              rdfs:comment "An extension of the 'broader' property to specify a partitive (part of) relationship between two concepts."@en ;
-                                                             
+
                                                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                                             
+
                                                              rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/extensions> ;
-                                                             
+
                                                              rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#broader> .
 
 
@@ -224,19 +225,19 @@
 
 <http://www.w3.org/2004/02/skos/extensions#narrowerGeneric> rdf:type :ObjectProperty ,
                                                                      :TransitiveProperty ;
-                                                            
+
                                                             rdfs:label "narrower (generic)"@en ;
-                                                            
+
                                                             rdfs:comment "This property is the inverse of the 'broaderGeneric' property." ;
-                                                            
+
                                                             <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                                            
+
                                                             <http://www.w3.org/2004/02/skos/core#definition> "@@TODO"@en ;
-                                                            
+
                                                             rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/extensions> ;
-                                                            
+
                                                             rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#narrower> ;
-                                                            
+
                                                             :inverseOf <http://www.w3.org/2004/02/skos/extensions#broaderGeneric> .
 
 
@@ -244,19 +245,19 @@
 ###  http://www.w3.org/2004/02/skos/extensions#narrowerInstantive
 
 <http://www.w3.org/2004/02/skos/extensions#narrowerInstantive> rdf:type :ObjectProperty ;
-                                                               
+
                                                                rdfs:label "narrower (instantive)"@en ;
-                                                               
+
                                                                <http://www.w3.org/2004/02/skos/core#definition> "@@TODO"@en ;
-                                                               
+
                                                                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                                               
+
                                                                rdfs:comment "This property is the inverse of the 'broaderInstantive' property."@en ;
-                                                               
+
                                                                rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/extensions> ;
-                                                               
+
                                                                rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#narrower> ;
-                                                               
+
                                                                :inverseOf <http://www.w3.org/2004/02/skos/extensions#broaderInstantive> .
 
 
@@ -265,19 +266,19 @@
 
 <http://www.w3.org/2004/02/skos/extensions#narrowerPartitive> rdf:type :ObjectProperty ,
                                                                        :TransitiveProperty ;
-                                                              
+
                                                               rdfs:label "narrower (partitive)"@en ;
-                                                              
+
                                                               <http://www.w3.org/2004/02/skos/core#definition> "@@TODO"@en ;
-                                                              
+
                                                               rdfs:comment "This property is the inverse of the 'broaderPartitive' property."@en ;
-                                                              
+
                                                               <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                                              
+
                                                               rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/extensions> ;
-                                                              
+
                                                               rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#narrower> ;
-                                                              
+
                                                               :inverseOf <http://www.w3.org/2004/02/skos/extensions#broaderPartitive> .
 
 
@@ -286,19 +287,19 @@
 
 <http://www.w3.org/2004/02/skos/extensions#relatedHasPart> rdf:type :ObjectProperty ,
                                                                     :TransitiveProperty ;
-                                                           
+
                                                            rdfs:label "related (has part)"@en ;
-                                                           
+
                                                            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                                           
+
                                                            <http://www.w3.org/2004/02/skos/core#definition> "@@TODO"@en ;
-                                                           
+
                                                            rdfs:comment "This property is the inverse of the 'relatedPartOf' property."@en ;
-                                                           
+
                                                            rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/extensions> ;
-                                                           
+
                                                            rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#related> ;
-                                                           
+
                                                            :inverseOf <http://www.w3.org/2004/02/skos/extensions#relatedPartOf> .
 
 
@@ -307,17 +308,17 @@
 
 <http://www.w3.org/2004/02/skos/extensions#relatedPartOf> rdf:type :ObjectProperty ,
                                                                    :TransitiveProperty ;
-                                                          
+
                                                           rdfs:label "related (is part of)"@en ;
-                                                          
+
                                                           <http://www.w3.org/2004/02/skos/core#definition> "@@TODO"@en ;
-                                                          
+
                                                           <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                                          
+
                                                           rdfs:comment "An extension of the 'related' property.  Use this property to express a partitive relationship between concepts, where it is desired that such a relationship be treated as associative (i.e. linking separate branches of a hierarchy) and NOT hierarchical."@en ;
-                                                          
+
                                                           rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/extensions> ;
-                                                          
+
                                                           rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#related> .
 
 
@@ -334,7 +335,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Carbohydrate
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/Carbohydrate> rdf:type :Class ;
-                                                                      
+
                                                                       rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient> .
 
 
@@ -342,7 +343,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/CertificationAuthority
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/CertificationAuthority> rdf:type :Class ;
-                                                                                
+
                                                                                 rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/Organization> .
 
 
@@ -374,7 +375,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Distributor
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/Distributor> rdf:type :Class ;
-                                                                     
+
                                                                      rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent> .
 
 
@@ -382,7 +383,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Energy
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/Energy> rdf:type :Class ;
-                                                                
+
                                                                 rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient> .
 
 
@@ -390,7 +391,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Fat
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/Fat> rdf:type :Class ;
-                                                             
+
                                                              rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient> .
 
 
@@ -398,7 +399,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Fiber
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/Fiber> rdf:type :Class ;
-                                                               
+
                                                                rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient> .
 
 
@@ -406,7 +407,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent> rdf:type :Class ;
-                                                                          
+
                                                                           rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/Organization> .
 
 
@@ -414,7 +415,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessProduct
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessProduct> rdf:type :Class ;
-                                                                            
+
                                                                             rdfs:comment "This is equivalent to Service Product in FTTO ontology" .
 
 
@@ -422,15 +423,15 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodType
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodType> rdf:type :Class ;
-                                                                  
+
                                                                   rdfs:label "Food Type" ;
-                                                                  
+
                                                                   rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Food> ;
-                                                                  
+
                                                                   <http://purl.org/dc/elements/1.1/description> "A representative of a type of food or dish." ;
-                                                                  
+
                                                                   <http://www.w3.org/2004/02/skos/core#definition> "Instances of this class defines representatives of a type of food or dish. We model food types this way, and not as OWL classes, due to the will of exploiting existing vocabularies (namely, AGROVOC), as well as simplyfing certain applications (eg, define a new dish via a CMS or WIki)." ;
-                                                                  
+
                                                                   <http://www.w3.org/2004/02/skos/core#example> "Milk, Tomato Sauce Pasta, Pizza, Salad." .
 
 
@@ -438,14 +439,14 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient> rdf:type :Class ;
-                                                                  
+
                                                                   rdfs:label "Nutrient" ;
-                                                                  
+
                                                                   rdfs:subClassOf <http://data.lirmm.fr/ontologies/food#Food> ;
-                                                                  
+
                                                                   rdfs:comment "TODO: complete subclasses of this with metadata annotations." ,
                                                                                "Nutrients are components in foods that an organism uses to survive and grow." ;
-                                                                  
+
                                                                   rdfs:seeAlso <https://en.wikipedia.org/wiki/Nutrient> .
 
 
@@ -471,7 +472,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/PreparationMethod
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/PreparationMethod> rdf:type :Class ;
-                                                                           
+
                                                                            rdfs:subClassOf :PlannedFoodProcess .
 
 
@@ -479,7 +480,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Producer
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/Producer> rdf:type :Class ;
-                                                                  
+
                                                                   rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodProcessAgent> .
 
 
@@ -487,7 +488,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Protein
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/Protein> rdf:type :Class ;
-                                                                 
+
                                                                  rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient> .
 
 
@@ -495,7 +496,7 @@
 ###  http://www.sodlod15.org/ontologies/socialfoodlabelling/Salt
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/Salt> rdf:type :Class ;
-                                                              
+
                                                               rdfs:subClassOf <http://www.sodlod15.org/ontologies/socialfoodlabelling/Nutrient> .
 
 
@@ -526,9 +527,9 @@
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/Coop_Bologna> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Producer> ,
                                                                                :NamedIndividual ;
-                                                                      
+
                                                                       rdfs:label "Azienda Coop (BO)"@it ;
-                                                                      
+
                                                                       <http://www.sodlod15.org/ontologies/socialfoodlabelling/is-located> <http://www.sodlod15.org/ontologies/socialfoodlabelling/Bologna> .
 
 
@@ -537,9 +538,9 @@
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/Mavery_Sondrio> rdf:type <http://www.sodlod15.org/ontologies/socialfoodlabelling/Distributor> ,
                                                                                  :NamedIndividual ;
-                                                                        
+
                                                                         rdfs:label "Azienda Mavery (SO)"@it ;
-                                                                        
+
                                                                         <http://www.sodlod15.org/ontologies/socialfoodlabelling/is-located> <http://www.sodlod15.org/ontologies/socialfoodlabelling/Sondrio> .
 
 
@@ -657,13 +658,13 @@
 
 <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto_1> rdf:type <http://data.lirmm.fr/ontologies/food#Food> ,
                                                                              :NamedIndividual ;
-                                                                    
+
                                                                     rdfs:label "Gocciole Coop"@it ;
-                                                                    
+
                                                                     <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-distributor> <http://www.sodlod15.org/ontologies/socialfoodlabelling/Coop_Bologna> ;
-                                                                    
+
                                                                     <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-producer> <http://www.sodlod15.org/ontologies/socialfoodlabelling/Mavery_Sondrio> ;
-                                                                    
+
                                                                     <http://www.sodlod15.org/ontologies/socialfoodlabelling/has-nutrient> <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_carbohydrate> ,
                                                                                                                                           <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_energy> ,
                                                                                                                                           <http://www.sodlod15.org/ontologies/socialfoodlabelling/prodotto1_fat> ,
@@ -683,17 +684,16 @@
 
 
 <http://www.w3.org/2004/02/skos/extensions> <http://purl.org/dc/elements/1.1/description> "@@TODO" ;
-                                            
+
                                             <http://purl.org/dc/terms/modified> "2004-08-27" ;
-                                            
+
                                             <http://purl.org/dc/elements/1.1/creator> "Alistair Miles" ;
-                                            
+
                                             <http://purl.org/dc/elements/1.1/title> "SKOS Extensions RDF Vocabulary" ;
-                                            
+
                                             <http://purl.org/dc/elements/1.1/contributor> "Members of the public-esw-thes@w3.org mailing list." .
 
 
 
 
 ###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
-
