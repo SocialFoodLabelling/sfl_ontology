@@ -6,94 +6,117 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix unit: <http://qudt.org/vocab/unit#> .
+@prefix schema: <http://schema.org/> .
 @prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
-@base <http://www.sodlod15.org/ontologies/socialfoodlabelling/resource> .
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/resource> rdf:type owl:Ontology ;
-                                                                  
-                                                                  owl:imports <http://data.lirmm.fr/ontologies/food> ,
-                                                                              <http://purl.org/foodontology/0.0.9> ,
-                                                                              <http://topbraid.org/schema/> ,
-                                                                              <http://www.sodlod15.org/ontologies/socialfoodlabelling> ,
-                                                                              <http://www.w3.org/2004/02/skos/core> .
-
-
-#################################################################
+<http://www.sodlod15.org/ontologies/socialfoodlabelling/resource> a owl:Ontology ;
+	owl:imports <http://purl.org/foodontology/0.0.9> , <http://topbraid.org/schema/> , <http://data.lirmm.fr/ontologies/food> , <http://www.sodlod15.org/ontologies/socialfoodlabelling> , <http://www.w3.org/2004/02/skos/core> .
 #
-#    Annotation properties
 #
-#################################################################
-
-
-###  http://purl.org/dc/elements/1.1/type
-
-dc:type rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/terms/type
-
-<http://purl.org/dc/terms/type> rdf:type owl:AnnotationProperty .
-
-
-
-
-
-#################################################################
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
 #
-#    Individuals
 #
-#################################################################
+# http://purl.org/dc/elements/1.1/type
 
+dc:type a owl:AnnotationProperty .
+#
+# http://purl.org/dc/terms/type
 
-###  http://aims.fao.org/aos/agrovoc/c_16477
+<http://purl.org/dc/terms/type> a owl:AnnotationProperty .
+#
+# http://schema.org/unitCode
 
-agrovoc:c_16477 rdf:type owl:NamedIndividual .
+schema:unitCode a owl:AnnotationProperty .
+#
+#
+#
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+#
+#
+# http://aims.fao.org/aos/agrovoc/c_1071
 
+agrovoc:c_1071 a owl:NamedIndividual .
+#
+# http://aims.fao.org/aos/agrovoc/c_16475
 
+agrovoc:c_16475 a owl:NamedIndividual .
+#
+# http://aims.fao.org/aos/agrovoc/c_16477
 
-###  http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#Demerara_Sugar
+agrovoc:c_16477 a owl:NamedIndividual .
+#
+# http://dbpedia.org/resource/Rusk
 
-:Demerara_Sugar rdf:type owl:NamedIndividual ;
-                
-                rdfs:label "Demerara Sugar" ;
-                
-                <http://www.w3.org/2004/02/skos/core#definition> """Unlike brown sugar, which is just refined white sugar lightly bathed in a bit of molasses (this is a good thing to know, as you can just substitute brown sugar for white sugar with a bit of molasses added), Demerara sugar is a large-grained, somewhat crunchy, raw sugar with origins in Guyana (a colony formerly called Demerara).
+<http://dbpedia.org/resource/Rusk> a owl:NamedIndividual , <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodType> ;
+	<http://www.w3.org/2004/02/skos/extensions#broaderGeneric> agrovoc:c_1071 , agrovoc:c_16475 .
+#
+# http://world-en.openfoodfacts.org/product/000027533024/luxury-christmas-pudding-asda
+
+<http://world-en.openfoodfacts.org/product/000027533024/luxury-christmas-pudding-asda> a owl:NamedIndividual ;
+	owl:sameAs :000027533024_Luxury_Christmas_Pudding .
+#
+# http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#Demerara_Sugar
+
+:Demerara_Sugar a owl:NamedIndividual , <http://www.sodlod15.org/ontologies/socialfoodlabelling/FoodType> ;
+	<http://www.w3.org/2004/02/skos/extensions#broaderGeneric> agrovoc:c_16477 ;
+	rdfs:label "Demerara Sugar" ;
+	rdfs:seeAlso <http://www.care2.com/greenliving/what-is-demerara-sugar.html> ;
+	<http://www.w3.org/2004/02/skos/core#definition> """Unlike brown sugar, which is just refined white sugar lightly bathed in a bit of molasses (this is a good thing to know, as you can just substitute brown sugar for white sugar with a bit of molasses added), Demerara sugar is a large-grained, somewhat crunchy, raw sugar with origins in Guyana (a colony formerly called Demerara).
 
 Demerara is a light brown, partially refined, sugar produced from the first crystallization during processing cane juice into sugar crystals (this process is similar to what happens with naturally evaporated cane juice). Unlike brown sugar, which has the added molasses flavor, Demerara has a natural caramel-like flavor that hasn’t been refined out. This lends warm caramel notes to whatever you add the sugar.
 
-(Text from http://www.care2.com/greenliving/what-is-demerara-sugar.html)""" ;
-                
-                <http://www.w3.org/2004/02/skos/extensions#broaderGeneric> agrovoc:c_16477 .
+(Text from http://www.care2.com/greenliving/what-is-demerara-sugar.html)""" .
+#
+# http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_Demerara_Sugar
 
+:000027533024_Demerara_Sugar a owl:NamedIndividual , off:Ingredient ;
+	off:rank "1"^^xsd:integer ;
+	dc:type :Demerara_Sugar ;
+	rdfs:label "Demerara Sugar" .
+#
+# http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_Luxury_Christmas_Pudding
 
+:000027533024_Luxury_Christmas_Pudding a owl:NamedIndividual , off:FoodProduct ;
+	off:containsIngredient
+	  :000027533024_Demerara_Sugar,
+	  :000027533024_sultanas,
+		:000027533024_raisins,
+		:000027533024_bread_rusk;
+	off:code "000027533024" ;
+	rdfs:label "Luxury Christmas Pudding" .
+#
+# http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_bread_rusk
 
-###  http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_Demerara_Sugar
+:000027533024_bread_rusk a owl:NamedIndividual , off:Ingredient ;
+	off:rank "4"^^xsd:integer ;
+	dc:type <http://dbpedia.org/resource/Rusk> ;
+	rdfs:label "Bread Rusk" .
+#
+# http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_raisins
 
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_Demerara_Sugar> rdf:type off:Ingredient ,
-                                                                                                       owl:NamedIndividual ;
-                                                                                              
-                                                                                              rdfs:label "Demerara Sugar" ;
-                                                                                              
-                                                                                              off:rank 1 ;
-                                                                                              
-                                                                                              dc:type :Demerara_Sugar .
+:000027533024_raisins a owl:NamedIndividual , off:Ingredient ;
+	off:quantity "9.4"^^xsd:double ;
+	off:rank "3"^^xsd:integer ;
+	dc:type agrovoc:c_16502 ;
+	schema:unitCode unit:Percent ;
+	rdfs:label "Raisins" .
+#
+# http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_sultanas
 
-
-
-###  http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_Luxury_Christmas_Pudding
-
-<http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_Luxury_Christmas_Pudding> rdf:type off:FoodProduct ,
-                                                                                                                 owl:NamedIndividual ;
-                                                                                                        
-                                                                                                        rdfs:label "Luxury Christmas Pudding" ;
-                                                                                                        
-                                                                                                        off:code "000027533024" ;
-                                                                                                        
-                                                                                                        off:containsIngredient <http://www.sodlod15.org/ontologies/socialfoodlabelling/resource#000027533024_Demerara_Sugar> .
-
-
-
-
-###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
-
+:000027533024_sultanas a owl:NamedIndividual , off:Ingredient ;
+	off:quantity "14.0"^^xsd:double ;
+	off:rank "2"^^xsd:integer ;
+	dc:type agrovoc:c_16502 ;
+	schema:unitCode unit:Percent ;
+	rdfs:label "Sultanas" .
+#
+# Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi
